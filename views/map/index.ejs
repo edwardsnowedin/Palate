@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Palate</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/map.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  <h1><%= message %></h1>
+  <form action="">
+    <input type="text" placeholder='Search...' required>
+    <input type="submit">
+  </form>
+  
+  <div id="map">
+
+  </div>
+
+  <script type="text/javascript" src="/script/map.js">
+  </script>
+  <script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=<%=API_KEY%>&v=3&callback=initMap">
+  </script>
+</body>
+</html>
