@@ -9,7 +9,9 @@ const methodOverride  = require('method-override');
 // const authRouter      = require('./routes/auth');
 // const usersRouter     = require('./routes/users');
 const homeRoute       = require('./routes/home');
-const mapRoute        =  require('./routes/map');
+const mapRoute        = require('./routes/map');
+const loginRoute      = require('./routes/login');
+const signupRoute     = require('./routes/signUp');
 
 const app  = express();
 const port = process.env.PORT || process.argv[2] || 3000;
@@ -25,3 +27,5 @@ app.listen(port, () => console.log('Server is listening on', `${port}`));
 
 app.use('/', homeRoute);
 app.use('/map', mapRoute);
+app.use('/login', loginRoute);
+app.use('/signUp', signupRoute);
