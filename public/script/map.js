@@ -1,25 +1,16 @@
 console.log('js is linked!');
 
-// let map;
-// function initMap() {
-//   // Constructor creates a new map - only center and zoom are required.
-//   map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: 40.7413549, lng: -73.9980244},
-//     zoom: 13
-// });
-//
-// }
 function success(position) {
-  var mapcanvas = document.createElement('div');
+  const mapcanvas = document.createElement('div');
   mapcanvas.id = 'mapcontainer';
   mapcanvas.style.height = '400px';
   mapcanvas.style.width = '600px';
 
   document.querySelector('article').appendChild(mapcanvas);
 
-  var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  const coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-  var options = {
+  const options = {
     zoom: 13,
     center: coords,
     mapTypeControl: false,
@@ -28,15 +19,43 @@ function success(position) {
     },
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  var map = new google.maps.Map(document.getElementById("mapcontainer"), options);
+  const map = new google.maps.Map(document.getElementById("mapcontainer"), options);
 
-  var marker = new google.maps.Marker({
+  const marker = new google.maps.Marker({
       position: coords,
       map: map,
       title:"You are here!"
   });
+
+  const request = {
+    location: center,
+    radius: 8047,
+    types: ['cafe']
+  };
+
+  const service = new google.maps.places.PlacesService(map);
+  console.log(service);
+
+  service.nearbySearch(request, callback);
 }
 
+function callback(results, status) {
+  if(status == google.maps.places.PlacesServiceStatus.OK){
+    let i;
+    for(i = 0; i < results.length; i++){
+      createMarker(results[i]);
+    }
+  }
+}
+
+// create markers on map
+function createMarker(place) {
+  const placeLocation = place.geometry.location;
+  const marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+}
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(success);
 } else {
