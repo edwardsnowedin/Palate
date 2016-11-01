@@ -7,6 +7,12 @@
   <title>Document</title>
 </head>
 <body>
-  <h1><%= greet %></h1>
+  <h1>Sign Up</h1>
+  <form class="signup" action="/users" method="post">
+  <input type="text" name="user[username]" value="" placeholder="Username">
+  <input type="password" name="user[password]" value="" placeholder="Password">
+  <input type="submit" value="Sign up">
+</form>
+
 </body>
 </html>

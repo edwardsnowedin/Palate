@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form class="logout" action="/auth?_method=DELETE" method="post">
+     <input type="submit" value="Logout" class="color">
+</form>
+<br>
+   <h2>Palate</h2>
+       <p>Welcome <%= user.username %> !</p>
+
+<form action="/recipeSearch" method="get" accept-charset="utf-8">
+   <input class="use" type="text">
+   <br>
+   <input type="submit" value="search recipes" placeholder="Search...">
+</form>
+</body>
+</html>

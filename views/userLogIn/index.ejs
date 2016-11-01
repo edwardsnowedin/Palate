@@ -13,7 +13,7 @@
 <body>
   <header>
     <h1>
-      New User ? <a href="#"> Sign Up Today!</a>
+      New User ? <a href="/signUp"> Sign Up Today!</a>
     </h1>
   </header>
   <main>
@@ -21,16 +21,16 @@
       <form class="form-inline">
       <div class="form-group">
         <label for="username">Username:</label>
-        <input type="email" class="form-control">
+        <input type="email" name="user[username]" value="" class="form-control" placeholder="Username">
       </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="password" class="form-control">
+        <input type="password" name="user[password]" class="form-control"  placeholder="Password">
       </div>
-      <div class="checkbox">
+      <!-- <div class="checkbox">
         <label><input type="checkbox"> Remember me</label>
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      </div> -->
+      <button type="submit" class="btn btn-default">Log in</button>
     </form>
     </div>
   </main>

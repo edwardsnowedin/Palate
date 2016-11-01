@@ -6,14 +6,14 @@ const bodyParser      = require('body-parser');
 const session         = require('express-session');
 const cookieParser    = require('cookie-parser');
 const methodOverride  = require('method-override');
-// const indexRouter     = require('./routes/index.js');
-// const authRouter      = require('./routes/auth');
-// const usersRouter     = require('./routes/users');
-const homeRoute       = require('./routes/home.js');
+const indexRouter     = require('./routes/index.js');
+const authRouter      = require('./routes/auth.js');
+const usersRouter     = require('./routes/users.js');
+// const homeRoute       = require('./routes/home.js');
 const loginRoute      = require('./routes/login.js');
 const mapRoute        = require('./routes/map.js');
 const signupRoute     = require('./routes/signUp.js');
-
+const recipeSearchRoute = require('./routes/recipeSearch.js');
 
 
 const app             = express();
@@ -46,10 +46,11 @@ app.use(session({
 // Set static file root folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', homeRoute);
+app.use('/', indexRouter);
 app.use('/userLogin', loginRoute);
-app.use('/map', mapRoute);
 app.use('/signUp', signupRoute);
+app.use('/map', mapRoute);
+app.use('/recipeSearch', recipeSearchRoute);
 
 
 // Listen on port for connections

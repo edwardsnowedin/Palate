@@ -30,7 +30,7 @@ function success(position) {
   const request = {
     location: center,
     radius: 8047,
-    types: ['cafe']
+    types: ['restaurants']
   };
 
   const service = new google.maps.places.PlacesService(map);
